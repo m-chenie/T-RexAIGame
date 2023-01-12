@@ -8,7 +8,7 @@ import math
 pygame.init()
 
 HEIGHT = 600
-WIDTH = 800
+WIDTH = 600
 
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -95,7 +95,7 @@ class BG():
 
 class Cloud():  # try to add more clouds, maybe find images of groups of clouds
     def __init__(self):
-        self.x = random.randint(200, 800)
+        self.x = WIDTH
         self.y = random.randint(300, 400)
         self.cloud_image = CLOUD
         self.cloud_width = self.cloud_image.get_width()
@@ -125,7 +125,7 @@ class ObstaclesAI():
 
         if self.rect_obstacle.x < -self.obstacle_image.get_width():
             self.obstacle_image = CACTUS[random.randint(0, 2)]
-            self.rect_obstacle.x = random.randint(50, 150) + WIDTH
+            self.rect_obstacle.x = WIDTH
             self.rect_obstacle.y = HEIGHT - self.obstacle_image.get_height() - 5
 
     def get_mask(self):
@@ -158,7 +158,7 @@ class ObstaclesPlayer():
 
         if self.rect_obstacle.x < -self.obstacle_image.get_width():
             self.obstacle_image = CACTUS[random.randint(0, 2)]
-            self.rect_obstacle.x = random.randint(50, 150) + WIDTH
+            self.rect_obstacle.x = WIDTH
             self.rect_obstacle.y = HEIGHT - self.obstacle_image.get_height() - 310
 
     def get_mask(self):
@@ -293,7 +293,7 @@ def game_over(messsage):
     text = FONT.render(messsage + " Score: " + str(POINTS), True, 'red')
 
     text_box = text.get_rect()
-    text_box.center = (400, 300)
+    text_box.center = (WIDTH/2, HEIGHT/2)
     SCREEN.blit(text, text_box)
 
 
@@ -411,37 +411,37 @@ if __name__ == '__main__':
 
                     config_path = os.path.join(local_directory, 'neat_config.txt')
                     run(config_path)
-                    pygame.time.delay(4000)
+                    pygame.time.delay(3000)
 
                 if normal.pressed(mouse_pos):
                     change_file('30')
 
                     config_path = os.path.join(local_directory, 'neat_config.txt')
                     run(config_path)
-                    pygame.time.delay(4000)
+                    pygame.time.delay(3000)
 
                 if hard.pressed(mouse_pos):
                     change_file('50')
 
                     config_path = os.path.join(local_directory, 'neat_config.txt')
                     run(config_path)
-                    pygame.time.delay(4000)
+                    pygame.time.delay(3000)
 
         SCREEN.fill("white")
 
         text = FONT.render("Select difficulty of AI", True, 'black')
 
         text_box = text.get_rect()
-        text_box.topleft = (300, 150)
+        text_box.topleft = (200, 150)
         SCREEN.blit(text, text_box)
 
-        easy = Button((227, 195, 154), 300, 200, 200, 50, "Easy")
+        easy = Button((227, 195, 154), 200, 200, 200, 50, "Easy")
         easy.draw_button((195, 217, 158))
 
-        normal = Button((227, 195, 154), 300, 275, 200, 50, "Normal")
+        normal = Button((227, 195, 154), 200, 275, 200, 50, "Normal")
         normal.draw_button((195, 217, 158))
 
-        hard = Button((227, 195, 154), 300, 350, 200, 50, "Hard")
+        hard = Button((227, 195, 154), 200, 350, 200, 50, "Hard")
         hard.draw_button((195, 217, 158))
 
         pygame.display.update()
