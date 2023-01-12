@@ -1,5 +1,4 @@
 import random
-import time
 import pygame
 import os
 import neat
@@ -114,7 +113,7 @@ class Cloud():  # try to add more clouds, maybe find images of groups of clouds
 class ObstaclesAI():
 
     def __init__(self):
-        self.obstacle_image = CACTUS[random.randint(0, 2)]
+        self.obstacle_image = CACTUS[random.randint(1, 2)]  # only small cacti will be the first obstacle
         self.rect_obstacle = self.obstacle_image.get_rect()
 
         self.rect_obstacle.y = HEIGHT - self.obstacle_image.get_height() - 10
@@ -147,7 +146,7 @@ class ObstaclesAI():
 class ObstaclesPlayer():
 
     def __init__(self):
-        self.obstacle_image = CACTUS[random.randint(0, 2)]
+        self.obstacle_image = CACTUS[random.randint(1, 2)] # only small cacti will be the first obstacle
         self.rect_obstacle = self.obstacle_image.get_rect()
 
         self.rect_obstacle.y = HEIGHT - self.obstacle_image.get_height() - 310
@@ -411,21 +410,21 @@ if __name__ == '__main__':
 
                     config_path = os.path.join(local_directory, 'neat_config.txt')
                     run(config_path)
-                    pygame.time.delay(3000)
+                    pygame.time.delay(2000)
 
                 if normal.pressed(mouse_pos):
                     change_file('30')
 
                     config_path = os.path.join(local_directory, 'neat_config.txt')
                     run(config_path)
-                    pygame.time.delay(3000)
+                    pygame.time.delay(2000)
 
                 if hard.pressed(mouse_pos):
                     change_file('50')
 
                     config_path = os.path.join(local_directory, 'neat_config.txt')
                     run(config_path)
-                    pygame.time.delay(3000)
+                    pygame.time.delay(2000)
 
         SCREEN.fill("white")
 
