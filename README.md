@@ -16,3 +16,5 @@ Possible future improvements:
 - improve game graphics
 - add more features to the T-Rex and more obstacles (Ex: T-rex can duck under obstacles)
 - use Sprites to create groups of obstacles and increase difficulty of the game
+
+Please feel free to download the demo video to see how the program works
